@@ -1,0 +1,20 @@
+<html>
+<body>
+<table align="center" border="2">
+    <tr bgcolor="yellow" style="color: red">
+        <th>NAME</th><th>AGE</th>
+    </tr>
+    {% for x in data %}
+    <tr><th>
+        {{ x.name }}
+    </th>
+    <th>{{ x.age }}</th>
+    </tr>
+        <tr><th>
+            {{ x.gender }}
+        </th></tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+

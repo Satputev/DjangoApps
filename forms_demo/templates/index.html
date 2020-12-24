@@ -1,0 +1,23 @@
+<html>
+<body>
+<form method="post" action="{% url 'save' %}" enctype="multipart/form-data">
+{% csrf_token %}
+    <br><br>
+    <fieldset>
+        <legend style="color: brown">Welcome to forms demo</legend>
+    <div class="container" align="center" style="color: red;font-size: 30px" >
+        <br><br>
+    {{ form.as_p }}
+        <button type="submit" style="border: green;font-size: 30px;color: white;background: red">Register</button>
+        <br><br>
+        {% for x in messages %}
+
+        <h3 style="color: green">{{ x }}</h3>
+        {% endfor %}
+<a href="{% url 'view' %}">View Employes</a>
+        </div>
+</fieldset>
+</form>
+
+</body>
+</html>

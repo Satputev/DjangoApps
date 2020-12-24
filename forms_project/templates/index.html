@@ -1,0 +1,12 @@
+<html>
+<body>
+<form method="post" action="{% url 'save' %}">
+    {% csrf_token %}
+{{ form.as_p }}
+<button type="submit">save</button>
+{% if error %}
+    <h3 style="color: red">{{ error }}</h3>
+    {% endif %}
+</form>
+</body>
+</html>

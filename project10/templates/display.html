@@ -1,0 +1,16 @@
+<html>
+<body>
+<form method="post" action="/next/">
+{% csrf_token %}
+<table align="center" cellspacing="8px" cellpadding="8px" border="2">
+    <tr><th bgcolor="yellow" style="color: black">UserDetail</th></tr>
+
+    {% for x,y in data.items %}
+    <tr ><th bgcolor="blue" style="color: red">{{ x }} :-</th><th bgcolor="black" style="color: white">{{ y }}</th></tr>
+    {% endfor %}
+
+<tr><th><button type="submit">Next</button> </th></tr>
+</table>
+</form>
+</body>
+</html>

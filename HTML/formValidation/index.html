@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Register</title>
+    <script type="text/javascript" src="validation.js"></script>
+</head>
+<body>
+<form action="demo.py" onsubmit="return check()">
+    <table align="center" border="2">
+        <tr>
+            <th colspan="2"><font color="red" face="Arial Black">Registration</font> </th>
+        </tr>
+        <tr>
+            <td>Name:</td>
+        <td>
+            <input type="text" required id="name"></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="number" min="23" max="60" required id="age"></td>
+        </tr>
+        <tr>
+            <td>ContactNo:</td>
+        <td><input type="number" required id="cno" ></td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" minlength="5" id="uname" required></td>
+
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" id="p1" minlength="8" required></td>
+        </tr>
+        <tr>
+            <td>Confirm Password:</td>
+            <td><input type="password" id="p2" minlength="8" required></td>
+        </tr>
+        <tr>
+            <th colspan="2"><button type="submit">submit</button> </th>
+        </tr>
+
+    </table></form>
+</body>
+</html>

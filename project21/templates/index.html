@@ -1,0 +1,18 @@
+{% load static %}
+
+<html>
+<body>
+<h1  style="color: crimson;background :wheat ;text-align: center;font-family: 'Arial Black';text-shadow: 5px 5px 5px yellow"><b>Sathya Movies</b></h1>
+<table align="center">
+<tr><th><a href="{% url 'main' %}?m=1" ><img src="{% static 'images/movie.png' %}" width="50px" height="50px"></a></th>
+    <th><h3 style="color: red">Telgu</h3></th></tr>
+
+    <tr><th><a href="{% url 'main' %}?m=2" ><img src="{% static 'images/movie.png' %}" width="50px" height="50px"></a></th>
+    <th><h3 style="color: brown">Hindi</h3></th></tr>
+
+<tr>
+    <th><a href="{% url 'main' %}?m=3" ><img src="{% static 'images/movie.png' %}" width="50px" height="50px"></a></th>
+    <th><h3 style="color: navy">English</h3></th></tr>
+    </table>
+</body>
+</html>

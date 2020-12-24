@@ -1,0 +1,7 @@
+{% extends "lmain.html" %}
+{% block ineer %}
+    <b><h1 style="color: navy">This is inner block...</h1></b>
+    <a href="/innerinner"> <button type="button">Load INNER INNER</button></a>
+    {% block innerinner %}
+        {% endblock %}
+{% endblock %}

@@ -1,0 +1,26 @@
+<table align="center" border="2">
+    <thead style="color: red;background: yellowgreen">
+    <tr>
+        <th>SID</th><th>SNAME</th><th>CONTACT</th><th>SUBJECTS</th><th>Update</th><th>Delete</th>
+    </tr></thead>
+    {% for x in data %}
+    <tr><th>{{ x.studentId }}</th><th>{{ x.StudentName }}</th><th>{{ x.contactNo }}</th>
+    <th>
+        {% for sub in x.subject.all %}
+            <ul>
+                <li><h3> {{ sub.courseName }}</h3></li>
+            </ul>
+
+
+            {% endfor %}
+    </th>
+    <th>
+        <a href="{% url 'update_student' %}?no={{ x.studentId }}">Update</a>
+    </th>
+    <th>
+        <a href="{% url 'delete_student' %}?no={{ x.studentId }}">Delete</a>
+    </th>
+    </tr>
+    {% endfor %}
+    </thead>
+</table>

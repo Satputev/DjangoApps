@@ -1,0 +1,14 @@
+
+<form method="post" action="{% url 'save_company' %}">
+    {% csrf_token %}
+<table align="center" border="2">
+
+    {{ form }}
+    <tr>
+        <th><button type="submit">Add Company</button> </th>
+    </tr>
+</table>
+    {% for x in messages %}
+    {{ x }}
+    {% endfor %}
+    </form>

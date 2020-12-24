@@ -1,0 +1,18 @@
+<html>
+<body>
+<form method="post" action="/calculator/" >
+    {% csrf_token %}
+<table align="center" cellspacing="10px" cellpadding="10px" border="2">
+    <tr><th colspan="2"><input type="number" required name="fname" placeholder="First Number"></th></tr>
+    <tr><th colspan="2"><input type="number" name="sname" placeholder="Second Number" required></th></tr>
+    <tr><th><button type="submit" name="sum" style="font-size: large;color: firebrick">+</button></th>
+        <th><button type="submit" name="sub" style="font-size: large;color: firebrick">-</button></th></tr>
+    <tr><th><button type="submit" name="mul" style="font-size: large;color: firebrick">x</button>
+        <th><button type="submit" name="div" style="font-size: large;color: firebrick">/</button></tr>
+{% if data %}
+    <tr><th colspan="2" style="color: green;font-family: Chiller;font-size: medium"> {{ data }}</th></tr>
+    {% endif %}
+</table>
+</form>
+</body>
+</html>

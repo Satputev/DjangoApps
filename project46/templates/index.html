@@ -1,0 +1,32 @@
+<html>
+<body>
+<form method="post" action="{% url 'add_product' %}">
+    {% csrf_token %}
+<table align="center" border="2">
+    {{ pf }}
+    <tr>
+        <th colspan="2"><button type="submit">Save</button> </th>
+    </tr>
+    {% for x in messages %}
+    <tr>
+        <th>{{ x }}</th>
+    </tr>
+    {% endfor %}
+</table>
+</form>
+    <form method="post" action="{% url 'add_emp' %}">
+        {% csrf_token %}
+    <table border="2" align="center">
+        {{ ef }}
+         <tr>
+        <th colspan="2"><button type="submit">Save</button> </th>
+    </tr>
+        {% for x in messages %}
+    <tr>
+        <th>{{ x }}</th>
+    </tr>
+    {% endfor %}
+    </table>
+</form>
+</body>
+</html>

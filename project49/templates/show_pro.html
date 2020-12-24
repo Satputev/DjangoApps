@@ -1,0 +1,15 @@
+<html>
+<body>
+<center>Click on product no to view all details</center><br>
+<table align="center" border="2">
+    <tr bgcolor="yellow"><th>Id</th><th>Name</th></tr>
+    {% for x in object_list %}
+    <tr><th><a href="{% url 'view_detail' x.id %}"> {{ x.id }}</a></th><th>{{ x.name }}</th></tr>
+
+    {% endfor %}
+{% for x in messages %}
+           <tr><th colspan="2" style="color: green"> {{ x }}</th></tr>
+            {% endfor %}
+</table>
+</body>
+</html>

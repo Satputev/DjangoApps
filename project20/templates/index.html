@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+<body>
+<h1 style="background: wheat;color: firebrick;text-align: center;font-family: 'Arial Black';font-size: 50px">Sathya Movie House</h1>
+<table align="center" border="0" cellpadding="7px" cellspacing="7px">
+    <tr>
+        <th width="200"><a href="{% url 'main' %}?m=1" ><img src="{% static 'images/m1.jpg' %}" width="150" height="200"></a></th>
+        <th width="200"><a href="{% url 'main' %}?m=1" ><img src="{% static 'images/m2.jpg' %}" width="150" height="200"></a></th>
+        <th width="200"><a href="{% url 'main' %}?m=1" ><img src="{% static 'images/m3.jpg' %}" width="150" height="200"></a></th>
+</tr>
+<tr><th width="200">Terminator-5</th><th width="200">Spy Agent</th>
+    <th width="200">Drone</th></tr><tr></tr>
+
+    <tr><th>Timing:9AM-11AM</th><th>Timing:1PM-4PM</th><th>Timing:9PM-11PM</th></tr>
+    <tr></tr>
+    <tr><th width="200"><a href="{% url 'main' %}?m=1" ><img src="{% static 'images/youtube.png' %}" width="35" height="30">Watch Trailer</a></th>
+    <th width="200"><a href="{% url 'main' %}?m=2" ><img src="{% static 'images/youtube.png' %}" width="35" height="30">Watch Trailer</a></th>
+        <th width="200"><a href="{% url 'main' %}?m=3" ><img src="{% static 'images/youtube.png' %}" width="35" height="30">Watch Trailer</a></th>
+    </tr>
+
+</table>
+</body>
+</html>

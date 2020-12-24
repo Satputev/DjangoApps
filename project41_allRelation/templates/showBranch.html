@@ -1,0 +1,13 @@
+<html>
+<body>
+<table align="center" border="2">
+    <tr><th colspan="5" bgcolor="yellow">Branch details</th></tr>
+    <tr bgcolor="red"><th>Name</th><th>Code</th><th>Contact</th><th>Address</th><th>Company</th></tr>
+    {% for x in data %}
+    <tr>
+        <th>{{ x.branch_name }}</th><th>{{ x.b_code }}</th><th>{{ x.b_contact }}</th><th>{{ x.b_address }}</th><th>{{ x.company.c_name }}</th>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

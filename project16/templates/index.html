@@ -1,0 +1,16 @@
+<html>
+
+<body bgcolor="yellow">
+<form method="post" action="/main/">
+    {% csrf_token %}
+<input type="text" name="name" placeholder="Name" required><br>
+    <input type="number" name="n1" placeholder="Number1" required><br>
+    <input type="number" name="n2" placeholder="Number2" required><br>
+
+<button type="submit">Submit</button>
+
+        {% block common %}
+{% endblock %}
+    </form>
+</body>
+</html>

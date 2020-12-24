@@ -1,0 +1,32 @@
+
+<form method="post" action="{% url 'updated_order' %}">
+    {% csrf_token %}
+<br><br>
+<table align="center" border="2">
+    <tr><th colspan="2">Update Order</th></tr>
+    <tr>
+        <th>Table Number</th>
+        <th>
+            <input type="hidden" name="oid" value="{{ order.oid }}" required>
+            <input type="number" name="tno" value="{{ order.tbl_no }}" required>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <select name="oi" multiple required>
+                {% for x in fi %}
+                    {% if x.item_id in order.eat_item.all %}
+
+                <option value="{{ x.item_id }}" selected>{{ x.item_name }}</option>
+                        {% else %}
+                        <option value="{{ x.item_id }}">{{ x.item_name }}</option>
+
+                    {% endif %}
+
+                    {% endfor %}
+            </select>
+        </th>
+    </tr>
+<tr><th colspan="2"><button type="submit">Update</button> </th></tr>
+</table>
+</form>

@@ -1,0 +1,30 @@
+<form method="post" action="{% url 'insert' %}">
+    {% csrf_token %}
+    <br><br>
+
+
+
+    <input type="number" name='accno' required placeholder="Account Number"> <br>
+    <br>
+    <input type="text" name="fn" required placeholder="First Name"><br><br>
+    <input type="text" name="ln" required placeholder="Last Name"><br><br>
+    <select name="acctype">
+        <option value="saving">saving</option>
+        <option value="current">current</option>
+        <option value="join">join</option>
+    </select><br><br>
+    <input type="number" step="0.01" name="balance" placeholder="Balance">
+    <br><br>
+    <input type="submit" value="Add">
+    <br><br>
+    {% if messages %}
+    {% for x in messages %}
+    {% if x.levels == MESSAGE_DEFAULT_LEVELS.SUCCESS %}
+    <h3>{{ x }}</h3>
+    {% elif x.levels == MESSAGE_DEFAULT_LEVELS.ERROR %}
+    <h4>{{ x}}</h4>
+
+    {% endif %}
+{% endfor %}
+{% endif %}
+</form>

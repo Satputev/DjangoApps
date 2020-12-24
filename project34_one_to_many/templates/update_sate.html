@@ -1,0 +1,15 @@
+<html>
+<body>
+<form method="post" action="{% url 'up_sate' %}">
+    {% csrf_token %}
+<table align="center" border="2">
+    <tr><th bgcolor="#fafad2" style="color: blue">Update state-->{{ data.cno }}</th></tr>
+    <tr><th><input type="hidden" name="s1" value="{{ data.cno }}"></th></tr>
+
+    <tr><th><input type="text" name="s2" value="{{ data.state_name }}" required></th></tr>
+    <tr><th><button type="submit">Update</button> </th></tr>
+</table>
+    </form>
+
+</body>
+</html>

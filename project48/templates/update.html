@@ -1,0 +1,16 @@
+<html>
+<body>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<table align="center" border="2">
+    <tr><th colspan="2">Update Product</th></tr>
+    <tr><th>{{ form.name.label }}</th><th>{{ form.name }}</th></tr>
+    <tr><th>{{ form.price.label }}</th><th>{{ form.price }}</th></tr>
+    <tr><th>{{ form.image.label }}</th><th>
+    {{ form.image }}
+    </th></tr>
+   <tr><th colspan="2"> <button type="submit">Update</button></th></tr>
+</table>
+    </form>
+</body>
+</html>

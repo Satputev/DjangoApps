@@ -1,0 +1,32 @@
+<table align="center" border="2">
+<tr style="color: white;background: blue">
+    <th>
+        State No
+    </th>
+    <th>
+        State name
+    </th>
+    <th>
+        Delete
+    </th>
+    <th>Update</th>
+</tr>
+    {% for x in data %}
+    <tr>
+        <th>{{ x.cno }}</th>
+        <th>{{ x.state_name }}</th>
+        <th>
+            <h3>
+                <a href="{% url 'del_state' %}?no={{ x.cno }}">
+                <button type="button" style="padding: auto">Delete</button>
+                </a>
+            </h3>
+        </th>
+        <th><h3 style="color: darkslateblue"><a href="{% url 'update_sate' %}?no={{ x.cno }}">UpdateState</a> </h3></th>
+
+
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<a href="{% url 'index' %}">back</a>

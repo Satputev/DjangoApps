@@ -1,0 +1,22 @@
+<html>
+<body>
+<form method="post" action="{% url 'save_bt' %}">
+    {% csrf_token %}
+
+<table align="center" bgcolor="#fafad2" border="2">
+    <tr>
+        <th style="color: slategrey"><h2>Add Biryani Type</h2></th>
+    </tr>
+    <tr><th>
+        <input type="number" name="bt1" placeholder="Number" required>
+    </th></tr>
+    <tr>
+        <th>
+            <input type="text" name="bt2" placeholder="Name" required>
+        </th>
+    </tr>
+    <tr><th><button type="submit">Add</button> </th></tr>
+</table>
+    </form>
+</body>
+</html>

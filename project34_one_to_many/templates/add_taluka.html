@@ -1,0 +1,53 @@
+<html>
+<body>
+
+<form method="post" action="{% url 'save_t' %}">
+    {% csrf_token %}
+<table align="center" border="2">
+    <tr>
+        <th>
+            Add Taluka
+        </th>
+    </tr>
+    <tr>
+        <th><input type="number" name="t1" placeholder="Taluka number" required></th>
+    </tr>
+    <tr>
+        <th>
+            <input type="text" name="t2" placeholder="Name" required>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <input type="number" name="t3" placeholder="Population" required>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <select name="t4" >
+                {% for x in data %}
+                <option value="{{ x.dno }}" id="i2">{{ x.d_name }}</option>
+                {% endfor %}
+            </select>
+        </th>
+    </tr>
+<tr>
+    <th>
+        <button type="submit">Add</button>
+    </th>
+</tr>
+{% for x in messages %}
+<tr>
+    <th>
+        <b style="color: green" >{{ x }}</b>
+    </th>
+
+</tr>
+{% endfor %}
+</table>
+<br>
+<a href="{% url 'index' %}">back</a>
+</form>
+
+</body>
+</html>

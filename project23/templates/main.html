@@ -1,0 +1,100 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+  <h2 style="text-align: center;color: gray;font-family: 'Arial Black'">Make Your Dream team and play</h2>
+  <br><br>
+  <form method="post" action="{% url 'my11' %}">
+  {% csrf_token %}
+
+<table class="table table-bordered" style="text-align: center">
+
+  <tbody>
+  {% for x in data %}
+        {% for m,n in x.items %}
+          {% if m == 'batsman' %}
+<tr><th style="text-align: center;font-family: 'Arial Black';color: brown" colspan="4"><h2>{{ m }}</h2></th></tr>
+    <tr>
+
+      <td><a href="https://www.cricbuzz.com/profiles/25/sachin-tendulkar"> <img src="{% static 'images/sachin.png' %}" width="100px" height="100px"></a></td>
+        <td><a href="https://www.cricbuzz.com/profiles/265/ms-dhoni" ><img src="{% static 'images/msd.png' %}" width="100px" height="100px"></a></td>
+        <td> <a href="https://www.cricbuzz.com/profiles/1413/virat-kohli"> <img src="{% static 'images/virat.png' %}" width="100px" height="100px"></a></td>
+        <td><a href="https://www.cricbuzz.com/profiles/576/rohit-sharma" ><img src="{% static 'images/rohit.png' %}" width="100px" height="100px"></a></td>
+    </tr>
+              <tr>
+              {% for a in n %}
+                  <td style="font-family: Chiller;color: red;text-align: center"><h3>{{ a }}
+                                        <input type="checkbox" name="t1" value="{{ a }}">
+</h3>
+</td>
+              {% endfor %}
+              </tr>
+          {% endif %}
+
+{% if m == 'Bowlers' %}
+    <tr><th style="text-align: center;font-family: 'Arial Black';color: brown" colspan="4"><h2>{{ m }}</h2></th></tr>
+
+  <tr>
+      <td><a href="https://www.cricbuzz.com/profiles/9311/jasprit-bumrah" ><img src="{% static 'images/bumrah.png' %}" width="100px" height="100px"></a></td>
+      <td><a href="https://www.cricbuzz.com/profiles/508/dale-steyn" ><img src="{% static 'images/sten.png' %}" width="100px" height="100px"></a></td>
+      <td><a href="https://www.cricbuzz.com/profiles/7710/mitchell-starc" ><img src="{% static 'images/stark.png' %}" width="100px" height="100px"></a></td>
+      <td><a href="https://www.cricbuzz.com/profiles/111/lasith-malinga" ><img src="{% static 'images/malinga.png' %}" width="100px" height="100px"></a></td>
+    </tr>
+
+    <tr>{% for o in n %}
+
+            <td style="font-family: Chiller;color: red;text-align: center"><h3>{{ o }} <input type="checkbox" name="t1" value="{{ a }}"></h3>
+</td>
+
+
+    {% endfor %}
+      </tr>
+  {% endif %}
+{% if m == 'Allrounder' %}
+    <tr><th style="text-align: center;font-family: 'Arial Black';color: brown" colspan="4"><h2>{{ m }}</h2></th></tr>
+
+   <tr>
+
+
+       <td> <a href="https://www.cricbuzz.com/profiles/69/yuvraj-singh" ><img src="{% static 'images/yuvi.png' %}" width="100px" height="100px"></a></td>
+       <td><a href="https://www.cricbuzz.com/profiles/158/shane-watson" ><img src="{% static 'images/watson.png' %}" width="100px" height="100px"></a></td>
+       <td><a href="https://www.cricbuzz.com/profiles/587/ravindra-jadeja" ><img src="{% static 'images/jaddu.png' %}" width="100px" height="100px"></a></td>
+       <td><a href="https://www.cricbuzz.com/profiles/3838/kapil-dev" ><img src="{% static 'images/kapil.png' %}" width="100px" height="100px"></a></td>
+    </tr>
+    <tr>
+            {% for a in n %}<th style="font-family: Chiller;color: red;text-align: center"><h3>{{ a }}
+                                              <input type="checkbox" name="t1" value="{{ a }}">
+</h3></th>
+
+        {% endfor %}
+</tr>
+  {% endif %}
+
+    {% endfor %}
+{% endfor %}
+  <tr><th colspan="4"><button type="submit" class="btn btn-primary">make dream team</button>
+</th></tr>
+  <tr><th colspan="4">{% block e11 %}{% endblock %}</th></tr>
+  </tbody>
+</table>
+  </form>
+ <a href="{% url 'index' %}"> <button type="submit" class="btn btn-success">Back</button></a>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

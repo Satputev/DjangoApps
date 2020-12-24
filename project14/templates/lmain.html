@@ -1,0 +1,14 @@
+
+{% extends "index.html" %}
+{% block common %}
+<br><br><br>
+    {% if name %}
+<h1 align="center">Welcome <b style="color: green"> {{ name }} </b>to SathyaTech</h1><br><br>
+        {% else %}
+        <h1 style="color: red">You are in main page</h1>
+    {% endif %}
+   <a href="/inner/"> <button type="button">LoadInner</button></a>
+    {% block ineer %}
+
+        {% endblock %}
+{% endblock %}

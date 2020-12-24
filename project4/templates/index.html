@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <script type="text/javascript"></script>
+    <title>Register</title>
+</head>
+<body>
+
+<form action="next.html" onsubmit=" return elgible()" >
+    <fieldset>
+
+        <legend>Donate blood donate life</legend>
+<table cellspacing="10px" cellpadding="10px" align="center" border="2" >
+    <tr><th colspan="3"><input type="text" placeholder="Doner name"  id="name" minlength="3" required ></th></tr>
+    <tr><th  colspan="3"><input type="number" min=23 max=45 placeholder="Age" required></th></tr>
+    <tr><th colspan="3"><input type="number" min=60 max=200 placeholder="Weight" required></th></tr>
+    <tr><th  colspan="3"><input type="tel" placeholder="Contact" id="contact" ></th></tr>
+    <tr><th  colspan="3"><input type="email" placeholder="Email" required></th></tr>
+    <tr><td><input type="radio" name="gender" value="male" required>Male</td>
+    <td><input type="radio" name="gender" value="Female" required>Female</td>
+     <td><input type="radio" name="gender" value="other" required>other</td>
+    </tr>
+    <tr><td  colspan="3">Blood Group:<select name="bloodGroup" required >
+        <option>A+</option>
+        <option>A-</option>
+
+        <option>B+</option>
+        <option>B-</option>
+
+        <option>AB+</option>
+        <option>AB-</option>
+
+        <option>O+</option>
+        <option>O-</option>
+
+    </select></td></tr>
+    <tr><td  colspan="2">Suffering for any Diseases:<input type="radio" name="diseases" value="yes" required>Yes</td>
+   <td  colspan="2"> <input type="radio" value="no" name="diseases" required>No</td></tr>
+        <tr><td  colspan="2">Taking any antibiotics in last 15 days:<input type="radio" name="antib" value="yes" required>Yes</td>
+   <td colspan="2"> <input type="radio" value="no" name="antib" required>No</td></tr>
+      <tr><td  colspan="2">Taking Alcohol before last 3 days:<input type="radio" name="alchohol" value="yes"  required>Yes</td>
+    <td  colspan="2"><input type="radio" value="no" name="alchohol"  required>No</td></tr>
+    <tr><th  colspan="3"><button type="submit">Donate</button> </th></tr>
+</table>
+     </fieldset>
+    </form>
+<script>
+
+
+function elgible(){
+
+   var name=document.getElementById("name").value;
+   var contact=document.getElementById("contact").value;
+
+      var disease=document.getElementsByName("diseases").value;
+   var antibio=document.getElementsByName("antib").value;
+   var alchohol=document.getElementsByName("alchohol").value;
+
+
+   for (var i=0;i<name.length;i++){
+if( name.charCodeAt(i)<65 || name.charCodeAt(i)>90 && name.charCodeAt(i)!=32){
+
+    alert("All letters must be capital only and length is three or more")
+    return false
+}else{
+    continue
+}
+}
+if(contact.length !="10"){
+    alert("Contact must be of 10 digit..")
+    return false
+}
+else {
+    if (contact[0] != "9" && contact[0] != "8" && contact[0] != "7" && contact[0] != "6"){
+        alert("Contect must be start with 9/8/7/6..")
+        return false
+    }
+        }
+
+       if(disease !="no") {
+           alert("You are not eligible for blood donation")
+           return false
+       }
+       if(antibio !="no"){
+                      alert("You are not eligible for blood donation")
+
+           return false
+       }
+       if(alchohol!="no"){
+                      alert("You are not eligible for blood donation")
+
+           return false
+       }
+return true;
+}
+</script>
+</body>
+</html>

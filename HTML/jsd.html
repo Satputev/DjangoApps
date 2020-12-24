@@ -1,0 +1,50 @@
+
+
+<html>
+<head>
+    <script type="text/javascript">
+        function check_password()
+        {
+           var p = document.getElementById("p1").value
+            l = p.length
+           if (l<8)
+           {
+               document.getElementById("s1").innerText = "POOR"
+               document.getElementById("s2").innerText = ""
+               document.getElementById("s3").innerText = ""
+           }
+           else
+           {
+              if(l==8)
+              {
+                  document.getElementById("s2").innerText = "OK"
+                  document.getElementById("s1").innerText = ""
+                  document.getElementById("s3").innerText = ""
+              }
+              else
+                  {
+                  document.getElementById("s3").innerText = "STRONG"
+                  document.getElementById("s1").innerText = ""
+                  document.getElementById("s2").innerText = ""
+              }
+           }
+
+        }
+    </script>
+</head>
+<body>
+
+    <input
+            type="password"
+            placeholder="Password"
+            id="p1"
+            onkeyup="check_password()">
+
+
+    <font color="red"><span id="s1"></span></font>
+    <font color="blue"><span id="s2"></span></font>
+    <font color="green"><span id="s3"></span></font>
+
+
+</body>
+</html>

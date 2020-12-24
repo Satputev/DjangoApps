@@ -1,0 +1,13 @@
+<br><br>
+
+
+<table align="center" border="2">
+    <thead>
+    <tr bgcolor="#9acd32" style="color: red"><th>Network id</th><th>Network name</th></tr>
+    {% for x in data %}
+        <tr><th>{{ x.network_id }}</th><th>{{ x.network_name }}</th></tr>
+    {% endfor %}
+    </thead>
+</table>
+
+<h2><a href="{% url 'index' %}">back</a> </h2>

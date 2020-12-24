@@ -1,0 +1,30 @@
+<html>
+<body>
+<form method="post" action="{% url 'update_data' %}">
+    {% csrf_token %}
+
+<table border="1">
+    <tr><th colspan="2">Update{{ acc_no}} Account Data </th></tr>
+        {% for x in data %}
+    <tr><th>First Name</th><th><input type="text" name="fn" placeholder="{{ x.f_name }}" required></th><</tr>
+    <tr> <th>Last Name</th><th><input type="text" name="ln" placeholder="{{ x.l_name }}" required></th></tr>
+       <tr> <th>Account type</th><th>{{ x.acc_type }}<select name="atype" >
+            <option value="saving">saving</option>
+            <option value="current">current</option>
+            <option value="join">join</option>
+       </select></th></tr>
+     <tr>   <th>Balance</th>
+         <th><input type="number" step="any" name="bl" placeholder="{{ x.balance }}" required></th>
+    </tr>
+            <tr><th><input type="hidden" name="accno" value="{{ x.accno }}"></th>
+
+            </tr>
+            <tr>
+
+            <th colspan="2" style="text-align: center"><button type="submit">Update</button> </th></tr>
+{% endfor %}
+</table>
+</form>
+
+</body>
+</html>

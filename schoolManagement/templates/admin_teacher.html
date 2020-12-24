@@ -1,0 +1,56 @@
+{% extends 'common.html' %}
+
+{% block common %}
+{% include 'admin_header.html' %}
+    <br>
+    <div style='text-align: right'>
+    <a href="{% url 'add_teacher' %}"> <button class="btn btn-primary" type="button">Add Teacher</button></a>
+    </div>
+    <br>
+    <table align="center" class="table">
+    <thead>
+    <tr>
+        <th>
+            Idno
+        </th>
+        <th>
+            Name
+        </th>
+
+        <th>
+            Class
+        </th>
+
+    </tr>
+        </thead>
+
+    {% if object_list %}
+    <tbody>
+    {% for x in object_list %}
+    <tr>
+        <th>
+            {{ x.t_idno }}
+        </th>
+    <th>
+        {{ x.t_name }}
+    </th>
+    <th>class</th>
+
+        <th>
+            <a href="{% url 'view_teacher' %}?t={{ x.t_idno }}"> <button type="button" class="btn btn-secondary btn-sm" >View</button></a>
+
+            <a href="{% url 'update_teacher' x.t_idno %}"> <button type="button" class="btn btn-info btn-sm" >Update</button></a>
+
+
+           <a href="{% url 'delete_teacher' x.t_idno %}"> <button type="button" class="btn btn-danger btn-sm" >Delete</button></a>
+        </th>
+        </tr>
+    {% endfor %}
+    </tbody>
+    {% endif %}
+    </table>
+
+
+
+
+{% endblock %}

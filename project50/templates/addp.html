@@ -1,0 +1,8 @@
+<form method="post" >
+    {% csrf_token %}
+{{ pf.as_p }}<br>
+<button type="submit">Add</button>
+    {% for x in messages %}
+    {{ x }}
+    {% endfor %}
+    </form>

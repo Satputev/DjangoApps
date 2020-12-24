@@ -1,0 +1,92 @@
+{% load static %}
+<html>
+<head>
+    <script type="text/javascript" src="{% static 'js/PlayerValidation.js' %}"></script>
+
+
+</head>
+<body>
+
+
+<br><br>
+<div style="text-align: left">
+    <a href="{% url 'login' %}"><button style="background: red;color: blue" >Login</button> </a>
+</div>
+<div style="text-align: right">
+<a href="{% url 'register_coaching_center' %}"> <button type="button"> <b style="background:yellow;">Register coaching center</b></button></a></div>
+<br><br>
+<h1 style="text-align: center;color: darkgreen">You are in correct place to make the carrier in sport</h1>
+
+<form method="post" action="{% url 'player_register' %}" onsubmit="return validate()">
+
+    {% csrf_token %}
+<fieldset>
+
+        <legend><h2 style="text-align: center;color: blue">Enter the details</h2></legend>
+
+<table border="2" align="center" cellpadding="7px" cellspacing="7px">
+
+{% if messages %}
+    <tr><th>
+        {% for x in messages %}
+      <h3 s style="color: chocolate"> {{ x }}</h3>
+        {% endfor %}
+
+    </th></tr>
+    {% endif %}
+
+    <tr><th><input type="text" name="f1" placeholder="Enter your Name" minlength="3" required id = "f11" onblur="return ValidateName()"><span id="i1" style="color: red;"></span></th></tr>
+    <tr><th><input type="number" name="f2" placeholder="Age" required min="16" max="45"></th></tr>
+    <tr><th><input type="number" placeholder="Enter Contact Number" name="f3" required id = "f33" onblur="validateContact()"><span id="i2" style="color: #ff0f03"></span> </th></tr>
+    <tr><th><textarea cols="30" rows="5" placeholder="Enter Address" name="f4" required></textarea> </th></tr><!--we can add google map address further -->
+    <tr><th>Select Gender:<input type="radio" name="f5" value="male" required>Male
+    <input type="radio" name="f5" value="female" required>Female
+        <input type="radio" name="f5" value="other" required>Other
+    </th></tr>
+    <tr><th>
+        select Your Interested sport:
+        <select name="f6" required>
+            <option value="cricket">
+                Cricket
+            </option>
+            <option value="footboll">
+                Footboll
+            </option><option value="chess">
+                Chess
+            </option><option value="hockey">
+                Hockey
+            </option><option value="athletic">
+                Athelatic
+            </option><option value="swimming">
+                Swimming
+            </option><option value="other">
+                Other
+            </option>
+        </select>
+    </th></tr>
+    <tr>
+        <th>
+            player Type:
+            <select name="f7" required>
+                <option value="beginner">
+                    Beginner
+                </option>
+                <option value="medium">
+                    Collage level
+                </option>
+                <option value="advance">National</option>
+
+            </select>
+        </th>
+    </tr>
+<tr><th><input type="text" name="uname" placeholder="Enter Username" required minlength="4"></th></tr>
+    <tr><th><input type="password" name="pass" placeholder="Enter Password" required minlength="8"></th></tr>
+    <tr><th><button type="submit" style="background:red;width: 150px;height: 40px;color: white" >Find Best Institutes</button> </th></tr>
+
+
+</table>
+</fieldset>
+    </form>
+
+</body>
+</html>

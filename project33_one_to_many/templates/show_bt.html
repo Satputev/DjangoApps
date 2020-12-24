@@ -1,0 +1,13 @@
+<html>
+<body>
+<table align="center" border="2" cellspacing="10px" cellpadding="10px">
+    <tr><th bgcolor="#fafad2" colspan="2">Biryani Types</th></tr>
+    <tr bgcolor="yellow" style="color: red"><th >No</th><th > Type</th></tr>
+    {% for x in data %}
+    <tr><th>{{ x.no }}</th><th>{{ x.type }}</th></tr>
+    {% endfor %}
+</table>
+<br><br>
+<a href="{% url 'index' %}">back</a>
+</body>
+</html>

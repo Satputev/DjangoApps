@@ -1,0 +1,34 @@
+<br><br>
+<form method="post" action="{% url 'update_s' %}">
+    {% csrf_token %}
+<table>
+    <tr><th>Update Student-->{{ data.studentId }}</th></tr>
+    <tr>
+        <th><input type="hidden" name="s1" value="{{ data.studentId }}"></th>
+    </tr>
+    <tr>
+        <th><input type="text" name="s2" value="{{ data.StudentName }}" required></th>
+    </tr>
+    <tr>
+        <th><input type="number" name="s3" value="{{ data.contactNo }}"></th>
+    </tr>
+    <tr>
+        <th>
+            <select name="s4" multiple>
+{% for x in data1 %}
+    {% if x in data.subject.all %}
+                <option value="{{ x.courseId }}" selected>{{ x.courseName }}</option>
+    {% else %}
+                    <option value="{{ x.courseId }}" >{{ x.courseName }}</option>
+{% endif %}
+{% endfor %}
+            </select>
+            </th>
+    </tr>
+<tr>
+    <th>
+        <button type="submit">Update</button>
+    </th>
+</tr>
+</table>
+</form>

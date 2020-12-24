@@ -1,0 +1,23 @@
+<form method="post" action="{% url 'order_taken' %}">
+    {% csrf_token %}
+<table align="center" border="2">
+<tr><th>Order Id</th><th><input type="number" name="oid" required></th></tr>
+    <tr>
+        <th>Table no</th><th><input type="number" name="tno" required> </th>
+    </tr>
+    <tr><th>Available Items</th><th>
+        <select  name="food_items" multiple>
+            {% for x in data %}
+                <option value="{{ x.item_id }}">{{ x.item_name }}</option>
+            {% endfor %}
+        </select>
+    </th></tr>
+<tr>
+    <th colspan="2"><button type="submit">Accept</button> </th>
+</tr>
+{% if err %}
+<tr><th colspan="2">
+    <b style="color: red"> {{ err }}</b>
+</th></tr>{% endif %}
+</table>
+</form>

@@ -1,0 +1,27 @@
+<html>
+<body>
+<table align="center" border="2">
+    <tr>
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Address</th>
+        <th>Branch name</th>
+        <th>Image</th>
+    </tr>
+    {% for x in data %}
+    <tr>
+        <th>{{ x.cust_name }}</th>
+    <th>{{ x.cust_contact }}</th>
+    <th>{{ x.cust_addr }}</th>
+    <th>
+        {% for y in  x.br_name.all %}
+            {{ y }}<br>
+            {% endfor %}
+    </th>
+    <th><a href="{{ x.cust_image.url }}"> <img src="{{ x.cust_image.url }}" width="100"> </a></th>
+    </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>

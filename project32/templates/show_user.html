@@ -1,0 +1,22 @@
+<table align="center" border="2">
+    <tr bgcolor="#708090">
+        <th>UserId</th><th>Uname</th><th>Address</th><th>Contact</th><th>Networks</th>
+    </tr>
+    {% for x in data %}
+        <tr>
+            <th>{{ x.user_id }}</th>
+        <th>{{ x.user_name }}</th>
+        <th>{{ x.user_address }}</th>
+        <th>{{ x.user_contact }}</th>
+        <th>
+        <ul>
+            {% for y in x.user_network.all%}
+                <li>{{ y.network_name }}</li>
+                {% endfor %}
+                </ul>
+        </th>
+        </tr>
+    {% endfor %}
+</table>
+<br>
+<a href="{% url 'index' %}">Back</a>

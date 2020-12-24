@@ -1,0 +1,59 @@
+<html>
+<body>
+<table align="center" border="2" cellpadding="5px" cellspacing="5px">
+    <tr>
+        <th colspan="6">
+            Taluka Info
+        </th>
+    </tr>
+    <tr>
+        <th>
+            Taluka No
+        </th>
+        <th>
+            Taluka Name
+        </th>
+        <th>
+            Population
+        </th>
+        <th>
+            District
+        </th>
+        <th>
+            State
+        </th>
+        <th>Delete</th>
+        <th>
+            Update
+        </th>
+    </tr>
+    {% for x in data %}
+    <tr>
+    <th>
+        {{ x.tno }}
+    </th>
+    <th>
+        {{ x.tname }}
+    </th>
+    <th>
+        {{ x.population }}
+    </th>
+    <th>
+        {{ x.district.d_name }}
+    </th>
+    <th>
+        {{ x.district.state.state_name }}
+    </th>
+    <th>
+        <a href="{% url 'del_tal' %}?no={{ x.tno }}"><button type="button" style="padding: auto">delete</button> </a>
+    </th>
+    <th><a href="{% url 'update_tal' %}?no={{ x.tno }}">Update</a> </th>
+    </tr>
+
+    {% endfor %}
+
+</table>
+<br>
+<a href="{% url 'index' %}">back</a>
+</body>
+</html>

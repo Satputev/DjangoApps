@@ -1,0 +1,32 @@
+<html>
+<body>
+<table border="2" align="center">
+    <tr>
+        <th>District no</th>
+        <th>District name</th>
+        <th>State</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    {% for x in data %}
+    <tr>
+    <th>
+        {{ x.dno }}
+    </th>
+    <th>
+        {{ x.d_name }}
+    </th>
+    <th>{{ x.state.state_name }}</th>
+    <th>
+        <a href="{% url 'del_ds' %}?no={{ x.dno }}"><button type="button" style="padding: auto">Delete</button> </a>
+    </th>
+    <th>
+        <a href="{% url 'update_dist' %}?no={{ x.dno }}">Update</a>
+    </th>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<a href="{% url 'index' %}">back</a>
+</body>
+</html>

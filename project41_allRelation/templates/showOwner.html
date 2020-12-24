@@ -1,0 +1,29 @@
+<html>
+<body>
+<table align="center" border="2" cellpadding="10px" cellspacing="10px">
+    <tr>
+        <th colspan="5">Owners Detail</th></tr>
+        <th>
+            Name
+        </th>
+        <th>Contact</th>
+        <th>Address</th>
+        <th>Gender</th>
+        <th>photo</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for x in data %}
+    <tr>
+        <th>{{ x.name }}</th>
+        <th>{{ x.contactno }}</th>
+        <th>{{ x.address }}</th>
+        <th>{{ x.gender }}</th>
+        <th><a href="{{ x.photo.url }}"> <img src="{{x.photo.url }}" width="90"></a></th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

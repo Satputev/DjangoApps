@@ -1,0 +1,43 @@
+<html>
+<body>
+
+<table align="center" border="2">
+    <tr><th>Welcome to Otp app</th></tr>
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+
+    <tr><th><input type="email" name="l1" placeholder="Username" required></th></tr>
+    <tr><th><input type="password" name="l2" placeholder="Password" required minlength="8"></th></tr>
+    <tr><th><button type="submit">Login</button></th></tr>
+    {% if messages %}
+    <tr><th>
+        {% for msg in messages %}
+        <h2 style="text-align: center;color: red;font-family: chiller">{{ msg }}</h2>
+        {% endfor %}
+    </th></tr>
+        {% endif %}
+    </form>
+
+{% if data %}
+    <form method="post" action="{% url 'otp_login' %}">
+    {% csrf_token %}
+<tr><th>
+    <h3 style="color: green">Otp is send your mail successfully..</h3>
+    <input type="number" placeholder="Enter otp" name="m1" required><br><br>
+    <input type="hidden" name="m2" value="{{ data }}">
+    <button type="submit">proceed</button>
+</th></tr>
+    {% if er %}
+        <tr><th>
+           <h2 style="color: red"> {{ er }}</h2>
+        </th></tr>
+        {% endif %}
+        </form>
+
+{% endif %}
+
+</table>
+
+</body>
+
+</html>

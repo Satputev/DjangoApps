@@ -1,0 +1,24 @@
+<html>
+
+<body>
+<table bgcolor="yellow" border="2" align="center">
+    <tr bgcolor="blue" style="color: yellow"><th width="80px" rowspan="2">IDNO</th><th width="100px" rowspan="2">NAME</th><th colspan="6">MARKS</th></tr>
+    <tr bgcolor="black" style="color: white">
+        <th>Subject1</th><th>Subject2</th><th>Subject3</th><th>Subject4</th><th>Subject5</th><th>Subject6</th></tr>
+    {% for x,y in data.items %}
+    <tr><th>{{ x }}</th>
+    <th>{{ y.name }}</th>
+        {% for i in y.marks %}
+        {% if i == 'A'%}
+        <th bgcolor="red">{{ i }}</th>
+            {% elif  i < 35 %}
+            <th bgcolor="#b22222">{{ i }}</th>
+        {% else %}
+        <th>{{ i }}</th>
+        {% endif %}
+    {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+</body>
+</html>

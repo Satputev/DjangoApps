@@ -1,0 +1,137 @@
+
+<html>
+<head>
+    <script type="text/javascript">
+
+        var loadFile=function (event) {
+            var image=document.getElementById('output');
+            image.src=URL.createObjectURL(event.target.files[0]);
+        };
+
+    </script>
+</head>
+<body>
+
+
+
+
+<br>
+<h1 align="center" style="font-size: 50px;font-family: 'Arial Black'">Employee Management system</h1>
+<br><br><br><br>
+
+<table align="center" border="0">
+    <tr>
+        <th>
+        {% if data1 %}
+        <form method="post" action="{% url 'update_e' %}" enctype="multipart/form-data">
+            {% else %}
+            <form method="post" action="{% url 'add_emp' %}" enctype="multipart/form-data">
+            {% endif %}
+                {% csrf_token %}
+            <table align="left" border="2" >
+                <tr>
+                    <th><h2 style="margin: auto">{% if data1 %} update : {{ data1.idno }}{% else %}Register Employee{% endif %}</h2></th>
+                </tr>
+                <tr>
+                    <th><input type="number" name="e1" {% if data1 %} value="{{ data1.idno }}" hidden {% endif %} required placeholder="idno" ></th>
+
+                </tr>
+                <tr>
+                    <th><input type="text" name="e2" placeholder="Name" value="{{ data1.name }}" required></th>
+                </tr>
+                <tr>
+                    <th><input type="number" name="e3" placeholder="Salary" value="{{data1.salart}}"required></th>
+                </tr>
+                <tr>
+                    <th><textarea name="e4" placeholder="Address" required cols="20" rows="4">{{ data1.address }}</textarea> </th>
+                </tr>
+                <tr>
+                    <th><p><input type="file"  name="e5"  id="file " onchange="loadFile(event)" style="display: none" required  > </p>
+
+                    <p>
+                        <label for="file " style="cursor: pointer;">Upload Image</label>
+                    </p>
+                        <p>
+                            {% if data1 %}
+                            <img src="{{ data1.photo.url }}" id="output" width="50"  >
+                            {% else %}
+                            <img id="output" width="50" >
+                            {% endif %}
+
+                        </p>
+
+                    </th>
+                </tr>
+                <tr><th><button type="submit">{% if data1 %}Update {% else %}Register{% endif %}</button> </th></tr>
+             </table>
+                            </form>
+        </th>
+    <th></th>
+    <th></th>
+    <th></th> <th></th>
+    <th></th>
+    <th></th> <th></th>
+    <th></th>
+    <th></th> <th></th>
+    <th></th>
+    <th></th>
+ <th></th>
+    <th></th>
+    <th></th> <th></th>
+    <th></th>
+    <th></th>
+        <th>
+            <table border="2" align="right" bgcolor="#fffafa" style="color: slategrey">
+
+                {% if data %}
+                     <tr>
+                         <td colspan="7" bgcolor="#fafad2" style="color: blue"><div align="center" style="margin: auto">
+                             <b style="color: dimgrey;font-size: small;text-align: left">Records :</b>
+                             <i  style="color: brown;font-size: small;margin-right: 150px"> {{ data.start_index}}-{{ data.end_index }} out of {{ total }}:</i>
+                             <b style="margin-right: 250px;font-size:30px ">Employee details</b></div></td>
+                        </tr>
+
+                        <tr bgcolor="yellow" style="color: red">
+                            <th >IDNO</th>
+                            <th width="150">Name</th>
+                            <th>Salary</th>
+                            <th width="180">Address</th>
+                            <th>Photo</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                         </tr>
+                    {% for x in data %}
+
+                        <tr>s
+                            <th>{{ x.idno }}</th>
+                            <th width="150">{{ x.name }}</th>
+                            <th>{{ x.salart }}</th>
+                            <th width="180">{{ x.address }}</th>
+                            <th><a href="{{ x.photo.url }}"> <img src="{{ x.photo.url }}" width="50" height="50"></a></th>
+                            <th><a href="{% url 'update_emp' %}?no={{ x.idno }}"><button type="button"style="margin: auto" >Update</button> </a> </th>
+                            <th><a href="{% url 'Delete_emp' %}?no={{ x.idno }}"><button type="button"style="margin: auto" >Delete</button> </a> </th>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        {% if data.has_previous %}
+                        <th colspan="3"><a href="{% url 'main' %}?ino={{ data.previous_page_number }}">
+                        <button style="margin: auto ;color: white;background: dimgrey;width:80px;height: 30px;border-radius: 12px" type="button">Previous</button>
+
+                    </a> </th>{% endif %}
+                    {% if data.has_next %}
+                        <th colspan="3"><a href="{% url 'main' %}?ino={{ data.next_page_number }}">
+                            <button style="margin: auto;color: white;background: mediumpurple;width: 80px;height: 30px;border-radius: 12px;" type="button">Next</button>
+                        </a> </th>{% endif %}
+                    </tr>
+                    {% else %}
+                    <h2 style="color: red">No employees Available</h2>
+                    <h3 style="color: green"> <== Add Employees </h3>
+                {% endif %}
+            </table>
+
+        </th>
+    </tr>
+</table>
+
+</body>
+</html>

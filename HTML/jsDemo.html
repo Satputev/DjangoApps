@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>JavaScript Ex</title>
+<script type="text/javascript">
+function check_pass(){
+
+var p=document.getElementById("p1").value
+
+l=p.length
+if(l<8){
+document.getElementById("s1").innerText="Poor"
+document.getElementById("s2").innerText=""
+document.getElementById("s3").innerText=""
+}else{
+	if(l==8){
+	
+	document.getElementById("s1").innerText=""
+document.getElementById("s2").innerText="Good"
+document.getElementById("s3").innerText=""
+	}else{
+	
+	document.getElementById("s1").innerText=""
+document.getElementById("s2").innerText=""
+document.getElementById("s3").innerText="Strong"
+	}
+}
+}
+</script>
+
+</head>
+<body>
+<input type="password" placeholder="Password" id ="p1" onkeyup="check_pass()"><font color="red"><span>*</span></font>
+<font color="red"><span id="s1"></span></font>
+<font color="yellow"><span id="s2"></span></font>
+<font color="green"><span id="s3"></span></font>
+<br><br>
+</body>
+
+</html>

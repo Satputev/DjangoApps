@@ -1,0 +1,6 @@
+<table align="center" border="2">
+    <tr><th>ID</th><th>Name</th><th>Price</th><th>Update</th><th>Delete</th></tr>
+    {% for x in data %}
+    <tr><th>{{ x.pid }}</th><th>{{ x.pname }}</th><th>{{ x.pprice }}</th><th><a href="{% url 'update_p' x.pid%}">Yes</a> </th><th>Yes</th></tr>
+    {% endfor %}
+</table>

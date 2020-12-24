@@ -1,0 +1,42 @@
+<html>
+<script type="text/javascript"></script>
+<body>
+<table align="center">
+    <tr><th>First Name</th><th><input type="text" name ="fname"required id="fn"></th></tr>
+    <tr><th>Last Name</th><th><input type="text" name="lname" id="ln" required></th></tr>
+    <tr><th colspan="2"><button type="submit" onclick="validate()">SHOW</button> </th></tr>
+    <tr><th colspan="2"><span id="fn"></span> </th></tr>
+
+</table>
+    </form>
+<script>
+
+    function validate() {
+    var fname=document.getElementById("fn").value;
+    var lname=document.getElementById("ln").value;
+    var count1=0
+    var count2=0
+    for(var a=0;a<fname.length;a++){
+        if(fname.charCodeAt(a)>=65 && fname.charCodeAt(a)<90 ||fname.charCodeAt(a)>=97 && fname.charCodeAt(a)<120 ){
+            count1=count1+1;
+
+        }
+    }
+     for(var a=0;a<lname.length;a++){
+        if(lname.charCodeAt(a)>=65 && lname.charCodeAt(a)<90 ||lname.charCodeAt(a)>=97 && lname.charCodeAt(a)<120 ){
+            count2=count2+1;
+        }
+    }
+    if(count1>=2 && count2>=2){
+
+document.getElementById("fn").innerText=fname+" "+lname;
+
+    }
+    else{
+        alert("First name and last name contain at least two characters...")
+    }
+}
+</script>
+</body>
+
+</html>

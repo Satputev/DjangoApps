@@ -1,0 +1,18 @@
+<html>
+<body>
+<table align="center" border="2" cellspacing="10px" cellpadding="10px">
+    <tr><th colspan="4" style="background:mediumpurple ;color:white ">Available Biryanies</th></tr>
+    <tr style="color: slategrey"><th>No</th><th>Name</th><th>Price</th><th>Type</th></tr>
+    {% for x in data %}
+    <tr style="color: red">
+        <th>{{ x.no }}</th>
+        <th>{{ x.name }}</th>
+        <th>{{ x.price }}</th>
+        <th>{{ x.biryani_type.type }}</th>
+    </tr>
+    {% endfor %}
+</table>
+<br>
+<a href="{% url 'index' %}">Back</a>
+</body>
+</html>

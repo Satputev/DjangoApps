@@ -1,0 +1,68 @@
+<html>
+<body>
+
+<form method="post" action="{% url 'save_acc' %}">
+    {% csrf_token %}
+<table align="center" border="2">
+    <tr>
+        <th bgcolor="white"style="color: slategrey">Add Account</th>
+    </tr>
+    <tr>
+        <th>
+            <input type="text" name="a1" placeholder="Bank Name" required>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <input type="number" name="a2" placeholder="Account Number" required>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <input type="number" name="a3" placeholder="Branch number" required>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <input type="text" name="a4" placeholder="IFSE CODE" required>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <textarea placeholder="Address" name="a5"  cols="20" rows="4" required>
+                Address:
+            </textarea>
+        </th>
+    </tr>
+    <tr>
+        <th>
+
+           select Employee: <select name="a6">
+                    {% for x in data %}
+                <option value="{{ x.idno }}">{{ x.name }}</option>
+                {% endfor %}
+            </select>
+        </th>
+    </tr>
+<tr>
+    <th>
+        <button type="submit" class="button">Add</button>
+    </th>
+</tr>
+{% for x in messages %}
+<tr>
+    <th>
+        <i style="color: green">{{ x }}</i>
+    </th>
+</tr>
+{% endfor %}
+
+
+</table>
+<br>
+<br>
+<a href="{% url 'main' %}">Back</a>
+</form>
+
+</body>
+</html>

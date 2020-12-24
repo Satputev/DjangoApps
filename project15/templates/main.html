@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block output%}
+    <h1 style="color: green">Total Mark:<b style="color: red"> {{ Tm }}</b></h1><br>
+    <h1 style="color: green">Average:<b style="color: red"> {{ Avg }}</b></h1>
+    <h1>
+    Result:<br>
+    {% for x,v in res.items %}
+
+        <b style="color: darkblue"> {{ x }}</b>:<b style="color: red"> {{ v }}</b><br>
+
+    {% endfor %}
+    </h1>
+
+{% endblock %}

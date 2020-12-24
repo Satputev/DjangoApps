@@ -1,0 +1,63 @@
+<html>
+<body>
+<table align="center" border="2" cellpadding="5px" cellspacing="5px">
+<tr><th colspan="8">Account Info</th></tr>
+    <tr>
+        <th>
+            Account Number
+        </th>
+         <th>
+            Employee Name
+        </th>
+         <th>
+             Branch Number
+        </th>
+         <th>
+            IFSC CODE
+        </th>
+         <th>
+            Bank Name
+        </th>
+         <th>
+            Bank Address
+        </th>
+        <th>
+            Update
+        </th>
+         <th>
+            Delete
+        </th>
+    </tr>
+    {% for x in data %}
+    <tr>
+        <th>
+            {{ x.acc_no }}
+        </th>
+        <th>
+            {{ x.emp.name }}
+        </th>
+        <th>
+            {{ x.branch_no }}
+        </th>
+        <th>
+            {{ x.ifsc_code }}
+        </th>
+        <th>
+            {{ x.bank_name }}
+        </th>
+        <th>
+            {{ x.branch_address }}
+        </th>
+        <th>
+            <a href="{% url 'update_acc' %}?no={{ x.acc_no }}">update</a>
+        </th>
+        <th>
+            <a href="{% url 'delete_acc' %}?no={{ x.acc_no }}">Delete</a>
+        </th>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'main' %}">back</a>
+
+</body>
+</html>

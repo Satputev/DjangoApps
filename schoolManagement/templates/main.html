@@ -1,0 +1,56 @@
+{% extends 'common.html' %}
+
+{% block common %}
+    <br><br><br>
+    <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <table align="center" border="0" bgcolor="#faebd7" >
+        <tr><th><h3 style="text-align: center;color: blue;font-family:cursive"><b>Login Here</b></h3> </th></tr>
+
+        <tr><th>
+            <!-- Example split danger button -->
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">User</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect01" name="u1" required>
+    <option selected>Select User</option>
+    <option value="admin">Admin</option>
+    <option value="teacher">Teacher</option>
+    <option value="student">Student</option>
+          <option value="parent">Parent</option>
+    <option value="other">Others</option>
+
+  </select>
+</div>
+
+        </th></tr>
+<tr><th>
+    <div class="input-group mb-3">
+
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">@</span>
+  </div>
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="u2" required>
+    </div></th></tr>
+
+<tr><th>
+    <div class="input-group mb-3">
+
+ <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1">@</span>
+  </div>
+  <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" name="u3" required>
+    </div></th></tr>
+    <tr><th style="text-align: center"><button type="submit" class="btn btn-danger btn-sm" >Login</button>
+</th></tr>
+
+        {% for x in messages %}
+        <tr><th style="text-align: center">
+            <h6 style="color: red">{{ x }}</h6>
+        </th></tr>
+        {% endfor %}
+    </table>
+        </form>
+
+{% endblock %}

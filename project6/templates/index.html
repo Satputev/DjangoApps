@@ -1,0 +1,42 @@
+<html>
+<head>
+  <!--  <script type="text/javascript"></script> -->
+</head>
+<body>
+
+<h1 >sathys Employee Info</h1>
+IDNO <input type="number" value="{{ idno }}" required><br>
+Name <input type="text" value="{{ name }}" required><br>
+
+Salary <input type="number" value="{{ salary }}" required><br>
+Contact<input type="number" value="{{ contact }}" required><br>
+Age<input type="number" value="{{ age }}" required><br>
+Gender
+{% if gender == "male" or gender == "Male" %}
+<input type="radio" name="gender" id="m" checked>Male<input type="radio" name="gender"   id="f" required>Female<br>
+{% endif %}
+{% if gender == "female" or gender == "Female" %}
+<input type="radio" name="gender" id="m">Male<input type="radio" name="gender"   id="f" checked required>Female<br>
+{% endif %}<br>
+Email<input type="email" name="email" value="{{ email }}" required><br>
+Username<input type="text" value="{{ username }}" required><br>
+
+<!--
+<p id ="g">{{ gender }}</p>
+
+<script>
+ var  gender=document.getElementById("g")
+   var m=document.getElementById("m")
+ var f=document.getElementById("f")
+    if(gender=="Male"){
+        m.checked=true
+    }else{
+        f.checked=true
+    }
+
+
+
+</script>
+-->
+</body>
+</html>

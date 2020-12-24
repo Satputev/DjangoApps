@@ -1,0 +1,10 @@
+
+{% if request.session.status %}
+<table>
+    <tr>
+        <th><a href="{% url 'home' %}"> Home</a></th><th>View Profile</th><th>Update Profile</th><th>Add Coment</th><th>Logout</th>
+    </tr>
+</table>
+{% else %}
+<h1>Log in first</h1>
+{% endif %}

@@ -1,0 +1,12 @@
+<table align="center" border="2">
+    <tr>
+        <th colspan="2">Admin Details</th>
+
+    </tr>
+    <tr><th>SRNO</th><th>ID</th><th>NAME</th></tr>
+    {% for x in data %}
+    <tr><th>{{ x.id }}</th><th>{{ x.id }}</th><th>{{ x.name }}</th></tr>
+    {% endfor %}
+</table>
+<br>
+<a href="{% url 'main' %}">Back</a>

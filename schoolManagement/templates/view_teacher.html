@@ -1,0 +1,29 @@
+{% extends 'common.html' %}
+{% block common %}
+{% include 'admin_header.html' %}
+
+    <div class="container">
+    <div class="card" style="width: 18rem;">
+  <img src="{{ data.t_img.url }}" class="card-img-top" alt="..." >
+<div class="card-body">
+        <h5 class="card-title"><b style="color: midnightblue">Name:   </b> <b style="color:red"> {{ data.t_name }}</b></h5>
+
+</div>
+  <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b style="color: midnightblue">Contact:   </b> <b style="color: red"> {{ data.t_contact }}</b></li>
+
+      <li class="list-group-item"><b style="color: midnightblue">Address:   </b><b style="color: red">  {{ data.t_add }}</b></li>
+      <li class="list-group-item"><b style="color: midnightblue">DOJ:   </b>   <b style="color: red"> {{ data.t_doj }}</b></li>
+      <li class="list-group-item"><b style="color: midnightblue">Gender:   </b> <b style="color: red"> {{ data.t_gender }}</b></li>
+  </ul>
+  <div class="card-body">
+    <a href="{% url 'update_teacher' data.t_idno %}" class="card-link">Update</a>
+    <a href="{% url 'delete_teacher' data.t_idno %}" class="card-link" >Delete</a>
+  </div>
+</div>
+
+    </div>
+                <a href="{% url 'teacher' %}"> <button type="submit" class="btn btn-primary btn-sm" >Back</button></a>
+
+
+{% endblock %}

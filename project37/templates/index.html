@@ -1,0 +1,57 @@
+<html>
+<body>
+<table align="center" border="2">
+    <tr>
+        <th>
+        {% if data1 %}
+                    <form method="post" action="{% url 'update' %}" enctype="multipart/form-data">
+                    {% else %}
+
+            <form method="post" action="{% url 'add_product' %}" enctype="multipart/form-data">
+            {% endif %}
+                {% csrf_token %}
+            <table align="center" border="2">
+                <tr>
+                    <th>{% if data1 %}<input type="number" name="p1" value="{{ data1.pid }}" hidden placeholder="Pid"> update pid=>{{ data1.pid }} {% else %}Add product{% endif %}
+
+                    </th>
+                </tr>
+            {% if not data1 %}
+
+                <tr><th><input type="number" name="p1"  placeholder="Pid" required></th></tr>
+            {% endif %}
+                <tr><th><input type="text" name="p2" value="{{ data1.pname }}" placeholder="Pname"></th></tr>
+                <tr><th><input type="file"  name="p3"  required> </th></tr>
+                <tr><th><button type="submit">{% if data1 %}Update{% else %}add{% endif %}</button> </th></tr>
+            </table>
+                            </form>
+
+        </th>
+        <th>
+            <table align="center" border="2">
+                {% if data %}
+                <tr><th>PID</th><th>Pname</th><th>IMG</th><th>UPDATE</th><th>DELETE</th></tr>
+                {% for x in data %}
+                <tr><th>{{ x.pid }}</th><th>{{ x.pname }}</th><th><a href="{{ x.photo.url }}"> <img src="{{ x.photo.url }}" width="50"></a></th>
+                <th><a href="{% url 'update_p' %}?pid={{ x.pid }}">update</a> </th><th><a href="{% url 'delete_p' %}?pid={{ x.pid }}">delete</a> </th>
+                </tr>
+                {% endfor %}
+                    <tr>
+                    {% if data.has_previous %}<th colspan="2">
+                    <a href="{% url 'main' %}?p={{ data.previous_page_number }}" >Previous</a>
+                    </th>
+
+                    {% endif %}
+                        {% if data.has_next %}
+                        <th colspan="2"><a href="{% url 'main' %}?p={{ data.next_page_number }}" style="cursor:not-allowed">Next</a></th>{% endif %}
+                        </tr>
+                    {% else %}
+                    <h2>Enter the products</h2>
+            {% endif %}
+            </table>
+
+        </th>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<body>
+<form method="post" action="{% url 'main' %}">
+    {% csrf_token %}
+<table border="2" align="center">
+   <tr><th><h1 style="text-align: center;color: gray;background: wheat">Employee Registration</h1> </th></tr>
+    <tr><th><input type="number" name="t1" placeholder="EID" required autofocus> </th></tr>
+    <tr><th><input type="text" required placeholder="Name" name="t2" ></th></tr>
+    <tr><th><input type="number" name="t3" placeholder="Salary" required> </th></tr>
+    <tr><th><button type="submit">save</button> </th></tr>
+</table>
+    </form>
+{% if message %}
+    <h1 style="background: blue;color: yellow;text-align: center;font-family: Chiller">{{ message }}</h1>
+{% endif %}
+</body>
+</html>

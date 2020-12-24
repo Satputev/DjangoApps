@@ -1,0 +1,59 @@
+
+{% load static %}
+<html>
+
+<head>
+    <script type="text/javascript" src="{% static 'js/PlayerValidation.js' %}"></script>
+</head>
+
+<body>
+
+<br><br>
+<form method="post" action="{% url 'r_center' %}" onsubmit="return validate()">
+    {% csrf_token %}
+<table border="2" align="center" cellpadding="7px" cellspacing="7px">
+    {% if messages %}
+    <tr><th>
+        {% for x in messages %}
+            <h2 style="color: slategrey">{{ x }}</h2>
+
+        {% endfor %}
+
+    </th></tr>
+    {% endif %}
+
+
+    <tr><th><h2 style="color: blue;background:yellow;">Register Coaching center</h2></th></tr>
+    <tr><th><input type="text" name="c1" placeholder="Coaching center name" id ="f11" required onblur="ValidateName()"><span style="color: darkgreen" id="i1"></span> </th></tr>
+    <tr><th><textarea name="c2" cols="30" rows="5" placeholder="Address" required></textarea> </th></tr>
+    <tr><th>Coaching Provided:
+     <select name="c3" required >
+            <option value="cricket">
+                Cricket
+            </option>
+            <option value="footboll">
+                Footboll
+            </option><option value="chess">
+                Chess
+            </option><option value="hockey">
+                Hockey
+            </option><option value="athletic">
+                Athelatic
+            </option><option value="swimming">
+                Swimming
+            </option><option value="other">
+                Other
+            </option>
+        </select>
+    </th></tr>
+    <tr><th>
+        <input type="date" name="edate" placeholder="Established Date" required>
+    </th></tr>
+    <tr><th><input type="number" name="c4" placeholder="Contact number" required id="f33" onblur="validateContact()"><span id="i2" style="color: slategrey"></span></th></tr>
+    <tr><th><input type="text" name="c5" placeholder="Institute ID" required minlength="4"> </th></tr>
+    <tr><th><input type="password" name="c6" placeholder="password" required min="8"></th></tr>
+    <tr><th><button type="submit" style="width: 120px;height: 30px;background:#ff0f03;" >Register Center</button> </th></tr>
+</table>
+    </form>
+</body>
+</html>

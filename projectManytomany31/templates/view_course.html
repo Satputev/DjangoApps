@@ -1,0 +1,22 @@
+<html>
+<body>
+<table align="center" border="2">
+    <thead>
+    <tr style="background: yellow;color: blue">
+        <th>Course ID</th><th>Course Name</th><th>Update</th><th>Delete</th>
+    </tr>
+        </thead>
+<tbody>
+    {% for x in data %}
+    <tr>
+        <th>{{ x.courseId }}</th>
+        <th>{{ x.courseName }}</th>
+        <th><a href="{% url 'update_course' %}?no={{ x.courseId }}">Update</a> </th>
+        <th><a href="{% url 'delete_course' %}?no={{ x.courseId }}">Delete</a> </th>
+
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+</body>
+</html>

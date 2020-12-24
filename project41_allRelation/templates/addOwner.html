@@ -1,0 +1,17 @@
+<html>
+<body>
+<form action="{% url 'saveOwner' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<table align="center" border="2">
+    {{ form }}
+    <tr><th colspan="2">  <button type="submit">Save</button> </th></tr>
+    {% for x in messages %}
+    <tr>
+        <th colspan="2">{{ x }}</th>
+    </tr>
+    {% endfor %}
+</table>
+    </form>
+
+</body>
+</html>

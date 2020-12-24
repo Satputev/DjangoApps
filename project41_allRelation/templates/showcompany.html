@@ -1,0 +1,18 @@
+<table align="center" border="2">
+    <tr>
+        <th>Company Name</th>
+        <th>ISN No</th>
+        <th>Main Branch Location</th>
+        <th>Contact Number</th>
+        <th>Owner</th>
+    </tr>
+    {% for x in data %}
+    <tr>
+        <th>{{ x.c_name }}</th>
+        <th>{{ x.ISONO }}</th>
+        <th>{{ x.mainBranch_addr }}</th>
+        <th>{{ x.c_contact }}</th>
+        <th>{{ x.owner.name }}</th>
+    </tr>
+    {% endfor %}
+</table>

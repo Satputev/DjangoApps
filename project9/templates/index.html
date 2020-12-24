@@ -1,0 +1,25 @@
+
+<html>
+<body>
+<table align="center" bgcolor="#a9a9a9" border="2"  cellpadding="10px" cellspacing="10px">
+    <tr bgcolor="yellow" style="color: red">
+        <th > Designation</th><th>Idno</th><th>Name</th><th>Salary</th><th>Project</th>
+    </tr>
+{% for x,y in data.items %}
+            <tr><th rowspan="2">{{ x }}</th>
+
+    {% for a,b in y.items %}
+        <th>{{ a }}</th>
+            <th>{{ b.name }}</th>
+        <th>{{ b.salary }}</th>
+        {% if b.project %}
+        <th bgcolor="#faebd7">{{ b.project }}</th>
+        {% endif %}
+        </tr>
+
+    {% endfor %}
+{% endfor %}
+
+</table>
+</body>
+</html>

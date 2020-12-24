@@ -1,0 +1,21 @@
+<html>
+<body>
+<form method="post" action="/main/">
+{% csrf_token %}
+<table align="center" border="2" bgcolor="#d2b48c" cellspacing="8px" cellpadding="8px">
+    <tr><th>Student No</th><th><input type="number" name="sno" required>
+    </th></tr>
+    <tr><th>Student Name</th><th><input type="text" name="sname" required>
+    </th></tr><tr><th>Subject 1</th><th><input type="number" name=s1 required>
+    </th></tr><tr><th>Subject 2</th><th><input type="number" name="s2" required>
+    </th></tr><tr><th>Subject 3</th><th><input type="number" name="s3" required>
+    </th></tr>
+    <tr><th colspan="2"><button type="submit">Display</button></th></tr>
+        <tr><th colspan="2">{% block output %}
+        {% endblock %}</th></tr>
+
+
+</table>
+</form>
+</body>
+</html>

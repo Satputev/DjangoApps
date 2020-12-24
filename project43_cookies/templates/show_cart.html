@@ -1,0 +1,11 @@
+<html>
+<body>
+<table align="center" border="2">
+    <tr><th>PID</th><th>Pname</th><th>Delete</th></tr>
+    {% for x,y in ck_data.items %}
+
+        <tr><th>{{ x }}</th><th>{{ y }}</th><th><a href="{% url 'delete_ck' %}?cid={{ x }}"> Yes</a></th></tr>
+    {% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<form method="post" action="/display/">
+    {% csrf_token %}
+<table align="center" border="2">
+    <tr><th>Register Here</th></tr>
+    <tr><th><input type="text" name="uname" placeholder="User Name" required></th></tr>
+    <tr><th><input type="password" name="upwd" placeholder="Password"  required> </th></tr>
+    <tr><th><input type="email" name="email" placeholder="Email" required></th></tr>
+    <tr><th>Gender:<input type="radio" name="gender" value="Male" required>Male
+        <input type="radio" name="gender" value="female" required>Female</th></tr>
+    <tr><th>Country:<select name="country">
+        <option value="India">India</option>
+        <option value="Usa">Usa</option>
+        <option value="Canada">Canada</option>
+    </select> </th>
+    </tr>
+    <tr><th>Skills:<input type="checkbox" name="skills" value="python">Python
+    <input type="checkbox" name="skills" value="Django">Django</th></tr>
+    <tr><th><input type="submit"></th></tr>
+</table>
+    </form>
+</html>

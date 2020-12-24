@@ -1,0 +1,48 @@
+<html>
+<body>
+
+<form method="post" action="{% url 'save_emp' %}">
+    {% csrf_token %}
+<table align="center" border="2">
+    <tr>
+        <th>
+            Add Employee
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <input type="number" placeholder="IDNO" name="e1" required>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <input type="text" placeholder="Name" name="e2" required>
+        </th>
+    </tr><tr>
+        <th>
+            <input type="tel" placeholder="Contact" name="e3" required>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <textarea name="e4" placeholder="Address" rows="5" cols="20"></textarea>
+
+        </th>
+    </tr>
+    <tr>
+        <th><button class="button" type="submit">Add</button></th>
+    </tr>
+    {% for x in messages %}
+    <tr>
+        <th>
+            <i style="color: green" >{{ x }}</i>
+        </th>
+    </tr>
+    {% endfor %}
+</table>
+<br><br>
+<a href="{% url 'main' %}">Back</a>
+    </form>
+
+</body>
+</html>

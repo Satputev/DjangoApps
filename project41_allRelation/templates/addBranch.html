@@ -1,0 +1,20 @@
+<html>
+<body>
+<form method="post" action="{% url 'save_branch' %}">
+    {% csrf_token %}
+
+
+<table align="center" border="2">
+    <tr><th colspan="2">Add The Branch</th></tr>
+    {{ form }}
+    <tr>
+        <th colspan="2"><button type="submit">Add</button> </th>
+    </tr>
+</table>
+    {% for x in messages %}
+    {{ x }}
+    {% endfor %}
+    </form>
+
+</body>
+</html>

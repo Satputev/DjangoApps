@@ -1,0 +1,44 @@
+{% load static %}
+<html>
+<body>
+<h1  style="color: crimson;background :wheat ;text-align: center;font-family: 'Arial Black';text-shadow: 5px 5px 5px yellow"><b>Sathya Movies</b></h1>
+
+<table align="center" border="2px" bgcolor="#f5deb3">
+
+<tr><th colspan="4">{{ movie}}</th></tr>
+   <tr> {% if movie == 'Telgu Movies'%}
+       <th><img src="{% static 'images/t1.jpg' %}" width="100" height="100"></th>
+       <th><img src="{% static 'images/t2.jpg' %}" width="100" height="100"></th>
+       <th><img src="{% static 'images/t3.png' %}" width="100" height="100"></th>
+       <th><img src="{% static 'images/t4.jpg' %}" width="100" height="100"></th>
+        <tr>{% for m in title %}<th>{{ m }}</th>{% endfor %}</tr>
+    <tr><th><a href="{% url 'video' %}?m=1"> Watch Trailer</a> </th><th><a href="{% url 'video' %}?m=2" >Watch Trailer </a></th>
+        <th><a href="{% url 'video' %}m=3" >Watch Trailer</a> </th><th><a href="{% url 'video' %}?m=4" >Watch Trailer</a> </th></tr>
+<tr><th><button type="button">Book</button> </th><th><button type="button">Book</button> </th>
+<th><button type="button">Book</button> </th><th><button type="button">Book</button> </th></tr>
+    </tr>
+   {% elif movie == 'Hindi Movies'%}
+       <tr><th><img src="{% static 'images/h1.jpg' %}" width="100" height="100"></th>
+       <th><img src="{% static 'images/h2.jpg' %}" width="100" height="100"></th>
+       <th><img src="{% static 'images/h3.jpg' %}" width="100" height="100"></th>
+       <th><img src="{% static 'images/h4.jpg' %}" width="100" height="100"></th></tr>
+        <tr>{% for m in title %}<th>{{ m }}</th>{% endfor %}</tr>
+    <tr><th><a href="{% url 'video' %}?m=5"> Youtube</a> </th><th><a href="{% url 'video' %}?m=6" >Youtube </a></th>
+        <th><a href="{% url 'video' %}?m=7" >Youtube</a> </th><th><a href="{% url 'video' %}?m=8" >Youtube</a> </th></tr>
+<tr><th><button type="button">Book</button> </th><th><button type="button">Book</button> </th>
+<th><button type="button">Book</button> </th><th><button type="button">Book</button> </th></tr>
+       {% else %}
+       <tr><th><img src="{% static 'images/e1.jpg' %}" width="100" height="100"></th>
+       <th><img src="{% static 'images/e2.jpg' %}" width="100" height="100"></th>
+       <th><img src="{% static 'images/e3.jpg' %}" width="100" height="100"></th>
+       <th><img src="{% static 'images/e4.jpg' %}" width="100" height="100"></th></tr>
+        <tr>{% for m in title %}<th>{{ m }}</th>{% endfor %}</tr>
+    <tr><th><a href="{% url 'video' %}?m=9"> Youtube</a> </th><th><a href="{% url 'video' %}?m=10" >Youtube </a></th>
+        <th><a href="{% url 'video' %}m=11" >Youtube</a> </th><th><a href="{% url 'video' %}?m=12" >Youtube</a> </th></tr>
+<tr><th><button type="button">Book</button> </th><th><button type="button">Book</button> </th>
+<th><button type="button">Book</button> </th><th><button type="button">Book</button> </th></tr>
+   {% endif %}
+
+</table>
+</body>
+</html>

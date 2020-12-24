@@ -1,0 +1,23 @@
+<html>
+<body>
+<center>
+    <form method="post" action="{% url 'save_admin' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <tr>
+            <th>
+                <button type="submit">Add</button>
+            </th>
+        </tr>
+        {% for x in messages %}
+            <tr>
+            <th>
+                <h3 style="color: dimgrey">{{ x }}</h3>
+
+            </th>
+            </tr>
+        {% endfor %}
+    </form>
+</center>
+</body>
+</html>

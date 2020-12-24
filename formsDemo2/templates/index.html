@@ -1,0 +1,88 @@
+<html>
+<body>
+
+
+<table align="center" border="0">
+<tr>
+    <th>
+
+<form method="post" action="{% url 'save' %}" enctype="multipart/form-data">
+{% csrf_token %}
+<table align="center" border="0">
+    <tr><th colspan="3">Register and Apply for job</th></tr>
+    <tr>
+        <th>{{ form.PRNno.label }}</th>
+        <th>{{ form.PRNno }}</th>
+        <th>{{ form.PRNno.errors }}</th>
+    </tr>
+    <tr>
+        <th>{{ form.name.label }}</th>
+        <th>{{ form.name }}</th>
+        <th>{{ form.name.errors }}</th>
+    </tr>
+    <tr>
+        <th>
+            {{ form.address.label }}
+        </th>
+        <th>
+            {{ form.address }}
+        </th>
+        <th>{{ form.address.errors }}</th>
+    </tr>
+
+    <tr>
+       <th>{{ form.resume.label }}</th>
+        <th>{{ form.resume }}</th>
+        <th>{{ form.resume.errors }}</th>
+    </tr>
+    <tr>
+        <th colspan="3">
+                <button type="submit">Save</button>
+
+        </th>
+    </tr>
+</table>
+    <br>
+<h3 style="color: red">{{ err }}</h3>
+    {% for x in messages %}
+        <h2 style="text-align: center">{{ x }}</h2>
+    {% endfor %}
+    </form>
+</th>
+{% if not data %}
+    </tr>
+    </table>
+        <center><a href="{% url 'viewAll' %}"><button type="button"> View all Applications</button></a></center>
+
+{% endif %}
+{% if data %}
+<th>
+    <table align="center" border="2">
+
+        <tr>
+            <th colspan="5"><b style="color: red"> Students applications</b></th>
+        </tr>
+        <tr>
+            <th>PRN no</th>
+            <th>Name of Applicant</th>
+            <th>Address</th>
+            <th>Resume</th>
+            <th>Date of Application</th>
+        </tr>
+        {% for x in data %}
+        <tr>
+        <th>{{ x.PRNno }}</th>
+        <th>{{ x.name }}</th>
+        <th>{{ x.address }}</th>
+        <th>{{ x.resume.url }}</th>
+        <th>{{ x.dateOfApplication }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+</th>
+{% endif %}
+    </tr>
+
+</table>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'common.html' %}
+
+{% block common %}
+{% include 'admin_header.html' %}
+        <div class="container">
+
+    <br>
+    <form method="post" action="{% url 'save_teacher' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <br>
+        {% for x in messages %}
+
+            <h5 colspan="3">
+                <h5 style="text-align: center;color: green">{{ x }}</h5>
+            </h5>
+
+        {% endfor %}
+    <table class="table-responsive table-striped table-hover " cellpadding="10px" cellspacing="10px">
+
+    <tr>
+        <th colspan="3" style="text-align: center" class="bg-warning text-danger"><h5><b>Add Teacher Here</b></h5></th>
+    </tr>
+        {{ tf }}
+
+<tr>
+    <th colspan="3" style="text-align: center">
+        <button type="submit" class="btn btn-danger btn-sm" >Add</button>
+    </th>
+</tr>
+
+    </table>
+</form>
+            </div>
+    <br>
+            <a href="{% url 'teacher' %}"> <button type="submit" class="btn btn-primary btn-sm" >Back</button></a>
+
+
+{% endblock %}

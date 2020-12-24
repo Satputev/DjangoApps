@@ -1,0 +1,11 @@
+<form method="post" action="{% url 'login_student' %}">
+    {% csrf_token %}
+<table align="center" border="2">
+    <tr>
+        <th colspan="2" style="text-align: center;color: blue">Login here</th>
+    </tr>
+    {{ sf }}
+    <tr><th colspan="2" style="text-align: center"><button type="submit">Login</button> </th> </tr>
+    <tr><th colspan="2"><h5 style="color: red;text-align: center">{{ error }}</h5> </th></tr>
+</table>
+    </form>

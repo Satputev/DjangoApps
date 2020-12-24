@@ -1,0 +1,40 @@
+<html>
+<body>
+<h1><a href="{% url 'getall' %}">Get all records</a></h1>
+<h1><a href="{% url 'getall1' %}"><button type="button">get Name and age of Persons</button> </a> </h1>
+<h1><a href="{% url 'fetchDistinct' %}"><button type="button">fetchDistinct</button> </a> </h1>
+<h1><a href="{% url 'fetchSpecific' %}">FirstFOurROW</a> </h1>
+<h1><a href="{% url 'fetchFromToSpecific' %}">fetch2-4 persons</a> </h1>
+
+<hr>
+<h1>Filter by single column</h1>
+<h3><a href="{% url 'filter1' %}">Find the persons whose age greater than 24</a> </h3>
+<h3><a href="{% url 'filter2' %}">Find the persons whose age greater than or equal to 24</a> </h3>
+<h2><a href="{% url 'filter3' %}">find the person whose age is less than 24</a> </h2>
+<h2><a href="{% url 'filter4' %}">Find the person whose age is not 23</a> </h2>
+<h2><a href="{% url 'filter5' %}">Find the person whose age between 23 to 30 </a> </h2>
+
+<hr>
+<h1>Like</h1>
+<h2><a href="{% url 'like1' %}">get the people data whose name contains 'e' as a letter</a> </h2>
+<hr>
+<h2><a href="{% url 'in' %}">find the peoples whose age in [20,21,22,23,24,25,30]</a> </h2>
+<hr>
+<h1>AND/OR/NOT operators</h1>
+<h2><a href="{% url 'logical_operators1' %}">Find the person details whose gender='male' and age > 25</a></h2>
+<h2><a href="{% url 'logical_operators2'%}">Find the person details whose gender='male or age >25</a> </h2>
+<h2><a href="{% url 'logical_operators3' %}">find the persons names whose age >25 and gender not male</a> </h2>
+<hr>
+<h1>NULL</h1>
+<h2><a href="{% url 'nullDemo' %}">Find the people names and gender whose age is null</a> </h2>
+<hr>
+<h1>Order</h1>
+<h2><a href="{% url 'order1' %}">Find the People details in acending order of age</a> </h2>
+<h2><a href="{% url 'order2' %}">Find the peple details in decending order by age</a> </h2>
+<hr>
+<h1>
+    Insert
+</h1>
+<h2><a href="{% url 'insertDemo' %}">Insert name='Ravi kumar' gender='male',age='27'</a> </h2>
+</body>
+</html>

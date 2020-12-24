@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="{% url 'update_accdata' %}">
+{% csrf_token %}
+<br><br><br>
+<table align="center" border="2" cellpadding="5px" cellspacing="5px">
+    <tr><th colspan="2">Update Acount no--><b style="color: darkslateblue" >{{ data.acc_no }}</b></th></tr>
+
+    <tr align="left">
+        <th>
+            <input type="hidden" name="a1" value="{{ data.acc_no }}" >
+            Emp name: </th><th> <select name="a2" required >
+            {% for x in data1%}
+                {% if data.emp.idno == x.idno %}
+            <option value="{{ x.idno }}" selected >{{ x.name }}</option>
+                {% else %}
+                <option value="{{ x.idno }}" >{{ x.name }}</option>
+{% endif %}
+            {% endfor %}
+        </select></th>
+    </tr>
+<tr align="left">
+    <th>
+        branch No:</th><th> <input type="number" name="a3" value="{{ data.branch_no }}" required >
+    </th>
+</tr >
+<tr align="left">
+    <th>
+        IFSC_CODE: </th><th><input type="text" value="{{ data.ifsc_code }}" name="a4" required>
+    </th>
+</tr>
+<tr align="left">
+    <th>BANK: </th><th><input type="text" name="a5" value="{{ data.bank_name }}" required></th>
+</tr>
+<tr align="left">
+    <th>
+        Branch Address: </th><th><textarea name="a6" required rows="4" cols="15">
+            {{ data.branch_address }}
+        </textarea>
+    </th>
+</tr>
+<tr>
+    <th colspan="2">
+        <button type="submit" >Update</button>
+    </th>
+</tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+<fieldset>
+    <form method="post" action="{% url 'display' %}">
+        {% csrf_token %}
+    <input type="password" name="p1" placeholder="Password" required><br><br>
+    <button type="submit">POST</button><br><br><br>
+    </form>
+    <form action="{% url 'display' %}">
+    <input type="password" placeholder="Password" name="p2" required><br><br>
+        <button type="submit">GET</button>
+</form>
+
+</fieldset>
+</body>
+</html>

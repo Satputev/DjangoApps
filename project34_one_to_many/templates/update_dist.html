@@ -1,0 +1,39 @@
+<html>
+<body>
+<form method="post" action="{% url 'up_dist' %}">
+    {% csrf_token %}
+<table align="center" border="2">
+    <tr>
+        <th>Update district-->{{ data.dno }}</th>
+    </tr>
+    <tr>
+        <th><input type="hidden" name="d1" value="{{ data.dno }}"></th>
+    </tr>
+    <tr>
+        <th>
+            <input type="text" name="d2" value="{{ data.d_name }}" required>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <select name="d3">
+                {% for x in data1 %}
+                    {% if data.state.cno == x.cno %}
+                <option value="{{ x.cno }}" selected>{{ x.state_name }}</option>
+                    {% else %}
+                    <option value="{{ x.cno }}" >{{ x.state_name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </th>
+    </tr>
+<tr>
+    <th>
+        <button type="submit">Update</button>
+    </th>
+</tr>
+</table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+<html>
+<body>
+<h2><a href="{% url 'add_bt' %}">Add biryani type</a></h2>
+<h2><a href="{% url 'show_bt' %}">View Biryani Types</a> </h2>
+<h2><a href="{% url 'add_b' %}">Add Biryani</a> </h2>
+<h2><a href="{% url 'show_b' %}">ViewBiryanies</a> </h2>
+{% for x in messages %}
+<h3 style="color: green;font-family: chiller">{{ x }}</h3>
+{% endfor %}
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<body>
+<br><br><br>
+<h1>Account Holders</h1>
+<br>
+<table border="2">
+    <thead>
+    <tr><th>ACCOUNT NUMBER</th><th>First Name</th><th>LAST NAME</th>
+    <th>ACCOUNT TYPE</th><th>AcCOUNT BALANCE</th><th>Insert</th><th>UPDATE</th><th>DELETE</th></tr>
+    </thead>
+    <tbody>
+    {% for acc in data %}
+    <tr><th>{{ acc.accno }}</th><th>{{ acc.f_name }}</th>
+    <th>{{ acc.l_name }}</th><th>{{ acc.acc_type }}</th><th>{{ acc.balance }}</th>
+        <th><a href="{% url 'insert' %}">Insert</a> </th>
+    <th>
+
+        <a href="{% url 'update' %}?ano={{ acc.accno }}">Update</a> </th>
+        <th><a href="{% url 'delete' %}?ano={{ acc.accno }}">Delete</a> </th>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

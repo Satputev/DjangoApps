@@ -1,0 +1,43 @@
+{% extends 'common.html' %}
+{% load static %}
+{% block img1 %}
+<img src="{% static 'images/hi1.jpg' %}" class="rounded mx-auto d-block" width="300" height="300">
+{% endblock %}
+{% block img2 %}
+<img src="{% static 'images/hi2.jpg' %}" class="rounded mx-auto d-block" width="300" height="300">
+{% endblock %}
+{% block img3 %}
+<img src="{% static 'images/hi3.jpg' %}" class="rounded mx-auto d-block" width="300" height="300">
+{% endblock %}
+
+{% block n1 %}
+
+    <b style="color: red;font-size: medium;text-align: center" >Deepika Padukone</b>
+{% endblock %}
+
+{% block n2 %}
+    <b style="color: red;font-size: medium;text-align: center" >Aishwarya Rai</b>
+
+
+{% endblock %}
+
+{% block n3 %}
+
+    <b style="color: red;font-size: medium;text-align: center" > Katrina Kaif</b>
+
+{% endblock %}
+
+{% block name %}
+         <b style="color: navy;font-size: large;text-align: center" > Heroins</b>
+
+
+{% endblock %}
+<br><br>
+{% block home %}
+<div class="text-left">
+
+    <a href="{% url 'index' %}" ><button type="button" class="btn btn-dark">BackToHome</button></a>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+<html>
+<body>
+<center>Click to pno for full detail</center>
+<table align="center" border="2">
+    <tr>
+        <th>PNO</th><th>Name</th>
+    </tr>
+
+    {% for x in object_list %}
+        <tr>
+            <th><a href="{% url 'view_full' x.pid %}" >{{ x.pid}}</a></th>
+        <th>{{ x.name }}</th>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

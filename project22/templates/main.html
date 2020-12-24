@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block movie %}
+    <br><br>
+    <table align="center" bgcolor="#dcdcdc">
+
+    <tr><th>
+        <iframe width="560" height="315" src="{{ url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </th></tr>
+
+    <tr></tr>
+        <tr><th colspan="3" style="text-align: center"><button type="button" style="color: white;background: red;animation: normal "><b>Book Now</b></button></th></tr>
+    </table>
+
+    <br><br>
+{% endblock %}
+{% block name %}
+    <h3 style="color: red;font-family: Chiller">{{ name }}</h3>
+{% endblock %}
+{% block intersts %}
+    {% for x in interest %}
+       <h2 style="font-family: Chiller;color:gray;text-align: center;text-shadow: 2px 2px 2px red">{{ x }}</h2><br>
+    {% endfor %}
+{% endblock %}

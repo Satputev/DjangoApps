@@ -1,0 +1,30 @@
+<html>
+<body>
+<br><br><br>
+<form action="{% url 'update_empl' %}" method="post">
+    {% csrf_token %}
+<table cellpadding="5px" cellspacing="5px" align="center" border="2">
+    <tr><th bgcolor="yellow" style="color: blue" colspan="2">Update Employee-->{{ data.idno }}</th></tr>
+    <tr>
+        <td>Name: </td>
+        <th>
+            <input type="hidden" name="e1" value="{{ data.idno }}">
+        <input type="text" name="e2" value="{{ data.name }}" required>
+        </th>
+    </tr>
+    <tr>
+        <td>Contact No:</td>
+        <td><input type="tel" name="e3" value="{{ data.contact }}" required></td>
+    </tr>
+    <tr><td>Address:</td>
+    <td>
+        <textarea name="e4" required cols="15" rows="4">{{ data.addr }}</textarea>
+    </td></tr>
+    <tr><th colspan="2"><button type="submit" >Update</button> </th></tr>
+
+</table>
+    </form>
+
+
+</body>
+</html>

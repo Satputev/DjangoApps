@@ -1,0 +1,14 @@
+<html>
+<body>
+<br><br>
+<table align="center" border="2" cellspacing="5px" cellpadding="5px">
+    <tr><th colspan="6" style="font-family: 'Arial Black';text-align: center;color: red">Employee Information</th></tr>
+    <tr bgcolor="yellow" style="color: blue"><th>IDNO</th><th>Name</th><th>ContactNo</th><th>Address</th><th>Update</th><th>Delete</th></tr>
+    {% for x in data %}
+    <tr><th>{{ x.idno }}</th><th>{{ x.name }}</th><th>{{ x.contact }}</th><th>{{ x.addr }}</th><th><a href="{% url 'update_emp' %}?no={{ x.idno }}">Update</a> </th><th><a href="{% url 'delete_emp' %}?no={{ x.idno }}">Delete</a> </th></tr>
+    {% endfor %}
+</table>
+<br>
+<a href="{% url 'main' %}">back</a>
+</body>
+</html>

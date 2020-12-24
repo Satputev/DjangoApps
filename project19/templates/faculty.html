@@ -1,0 +1,43 @@
+{% extends 'common.html' %}
+{% load static %}
+{% block img1 %}
+<img src="{% static 'images/t1.jpg' %}" class="rounded mx-auto d-block" width="300" height="300">
+{% endblock %}
+{% block img2 %}
+<img src="{% static 'images/t2.jpg' %}" class="rounded mx-auto d-block" width="300" height="300" >
+{% endblock %}
+{% block img3 %}
+<img src="{% static 'images/t3.jpg' %}" class="rounded mx-auto d-block" width="300" height="300" >
+{% endblock %}
+
+{% block n1 %}
+
+    <b style="color: red;font-size: medium;text-align: center" >Albert Einstine</b>
+{% endblock %}
+
+{% block n2 %}
+    <b style="color: red;font-size: medium;text-align: center" >Issac Newton</b>
+
+
+{% endblock %}
+
+{% block n3 %}
+
+    <b style="color: red;font-size: medium;text-align: center" > Bill Gates</b>
+
+{% endblock %}
+
+{% block name %}
+         <b style="color: navy;font-size: large;text-align: center"  >Faculty</b>
+
+
+{% endblock %}
+<br><br>
+{% block home %}
+<div class="text-left">
+
+    <a href="{% url 'index' %}" ><button type="button" class="btn btn-dark">BackToHome</button></a>
+
+</div>
+
+{% endblock %}

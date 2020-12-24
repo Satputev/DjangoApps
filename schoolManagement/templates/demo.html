@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+    {box-sizing: border-box;}
+
+    .open-button{
+        background-color: #555;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0.8;
+        position: fixed;
+        bottom: 200px;
+        right: 580px;
+        width: 280px;
+    }
+
+    .form-popup{
+        display: none;
+        position: fixed;
+        bottom: 200px;
+        right: 580px;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+    }
+.form-container{
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+    .form-container input[type=text],.form-container input[type=password]{
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+    }
+    .form-container input[type=text]:focus, .form-container input[type=password]:focus{
+        background-color: #ddd;
+        outline: none;
+    }
+    .form-container .btn{
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+        opacity: 0.8;
+    }
+
+    .form-container .cancel{
+        background-color: red;
+    }
+    .form-container .btn:hover, .open-button:hover{
+        opacity: 1;
+    }
+</style>
+<script type="text/javascript">
+    function openForm() {
+        document.getElementById('myForm').style.display="block";
+    }
+    function closeForm() {
+        document.getElementById("myForm").style.display="none"
+    }
+</script>
+
+  </head>
+  <body>
+
+  <button class="open-button" onclick="openForm()">Open Form</button>
+
+<div class="form-popup" id="myForm">
+    <form method="post" action="#" class="form-container">
+        {% csrf_token %}
+        <h1>Login</h1>
+        <label for="email">
+            <b>Email</b>
+        </label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" name="psw" required placeholder="Enter Password">
+        <button type="submit" class="btn">Login</button>
+        <button type="submit" class="btn cancel"
+                onclick="closeForm()">Close</button>
+    </form>
+</div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

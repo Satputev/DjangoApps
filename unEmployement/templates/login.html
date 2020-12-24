@@ -1,0 +1,24 @@
+<html>
+<body><br><br>
+<h2 style="text-align: center;color: green;">Login Here</h2><br>
+<br>
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table align="center" cellpadding="7px" cellspacing="7px">
+    <tr><th>User Type:<select name="tp">
+        <option value="sportsMan">
+            Sports Man
+        </option>
+        <option value="center">
+            Center
+        </option>
+    </select></th></tr>
+    <tr><th><input type="text" name="l1" placeholder="Username/Id" required></th></tr>
+    <tr><th><input type="password" name="l2" placeholder="Password" required></th></tr>
+    <tr><th><button type="submit" style="background: red;color: white">Login</button><h4 style="color: red">{% for x in messages %}
+        {{ x }}{% endfor %}</h4>
+    </th></tr>
+</table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Employee Info</title>
+  </head>
+  <body>
+
+<br><br>
+<center>
+
+{% for x in data %}
+        <h3 style="color: #ff090c">Empolyee:  <b style="color: green">{{ x.eno }}</b></h3>
+
+    <div class="card" style="width: 18rem; background: cornsilk" >
+
+  <a href="{{ x.image.url }}"><img src="{{ x.image.url }}" class="card-img-top"></a>
+  <div class="card-body">
+    <h5 class="card-title">Name:  <b style="color: #1d0fff">{{ x.ename }}</b></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Contact Number: <b style="color: dimgrey"> {{ x.contact_no }}</b> </li>
+      <li class="list-group-item">Designation:  <b style="color: dimgrey">{{ x.Designation }}</b></li>
+      <li class="list-group-item">Salary:  <b style="color: dimgrey">{{ x.salary }}</b></li>
+      <li class="list-group-item">EmailId: <b style="color: dimgrey"> {{ x.email }}</b></li>
+
+  </ul>
+  <div class="card-body">
+      {% if data.has_previous %}
+    <a href="{% url 'view' %}?en={{ data.previous_page_number }}" class="card-link">previous</a>
+      {% endif %}
+      {% if data.has_next %}
+    <a href="{% url 'view' %}?en={{ data.next_page_number }}" class="card-link">Next</a>
+      {% endif %}
+  </div>
+</div>
+    <br>
+    <a ><button type="button" class="btn btn-primary">Update</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a ><button type="button" class="btn btn-danger">Delete</button></a>
+
+{% endfor %}
+    </center>
+
+<a href="{% url 'main' %}"><button type="button" class="btn btn-dark">Back</button>
+</a>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+<table border="1">
+<thead>
+<tr><th>Account no</th><th>fname</th><th>lname</th><th>atype</th><th>balance</th></tr>
+</thead>
+    {% for records in data %}
+        <tr><th>{{ records.accno}}</th><th>{{ records.f_name  }}</th><th>{{ records.l_name }}</th>
+        <th>{{ records.acc_type }}</th><th>{{ records.balance }}</th>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
